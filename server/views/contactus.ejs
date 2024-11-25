@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/public/Content/app.css" />
+<%- include('partials/main_nav') %>
+
+<div class="container">
+  <section id="contact">
+    <div class="contact container">
+      <div>
+        <h1 class="sectionTitle">Contact Us</h1>
+      </div>
+      <div class="contactItems">
+        <div class="contactItem">
+          <div class="icon">
+          </div>
+          <div class="contactInfo">
+            <!-- The action now points to the POST route for the contact form -->
+            <form action="/contact" method="POST" class="phpEmailForm">
+              <p>Name</p>
+              <input type="text" name="name" placeholder="Your Name" required />
+              <p>Email</p>
+              <input type="email" name="email" placeholder="Your Email" required />
+              <p>Subject</p>
+              <input type="text" name="subject" placeholder="Subject" required />
+              <p>Message</p>
+              <textarea style="height: 150px" name="message" placeholder="Your Message" required></textarea>
+              <button class="button" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include('partials/footer') %>
