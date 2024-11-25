@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 
 let bookModel = mongoose.Schema({
     Name: String,
-    Author: String,
-    Published: String,
+    CookTime: String,
+    Ingredients: String,
     Description: String,
-    Price: Number
+    Instructions: String
 },
 {
     collection:"Bio_books"

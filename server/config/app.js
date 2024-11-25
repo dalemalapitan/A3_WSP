@@ -24,14 +24,7 @@ mongoDB.once('open',()=>{
   console.log("Connected with the MongoDB")
 });
 mongoose.connect(DB.URI,{useNewURIParser:true,useUnifiedTopology:true})
-/* main().catch(err => console.log(err));
 
-async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/BookLib');
-  //await mongoose.connect('mongodb+srv://ahmedsheikh:Test123@cluster0.0f3pz.mongodb.net/');
-
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
-}*/
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -40,11 +33,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/bookslist',bookRouter);
-// /project --> projectrouter
-// /contactus --> contactus
+app.use('/recipe',bookRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

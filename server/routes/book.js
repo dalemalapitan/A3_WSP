@@ -16,7 +16,7 @@ router.get('/',async(req,res,next)=>{
 try{
     const BookList = await Book.find();
     res.render('Book/list',{
-        title:'Books',
+        title:'Recipe\'s List',
         BookList:BookList
     })}
     catch(err){
@@ -30,7 +30,7 @@ try{
 router.get('/add',async(req,res,next)=>{
     try{
         res.render('Book/add',{
-            title: 'Add Book'
+            title: 'Add Recipe'
         })
     }
     catch(err)
@@ -45,14 +45,14 @@ router.get('/add',async(req,res,next)=>{
 router.post('/add',async(req,res,next)=>{
     try{
         let newBook = Book({
-            "Name":req.body.Name,
-            "Author":req.body.Author,
-            "Published":req.body.Published,
+            "Meal":req.body.Name,
+            "CookTime":req.body.Author,
+            "Ingredients":req.body.Published,
             "Description":req.body.Description,
-            "Price":req.body.Price
+            "Instructions":req.body.Price
         });
         Book.create(newBook).then(()=>{
-            res.redirect('/bookslist');
+            res.redirect('/recipe');
         })
     }
     catch(err)
@@ -94,7 +94,7 @@ router.post('/edit/:id',async(req,res,next)=>{
             "Price":req.body.Price
         });
         Book.findByIdAndUpdate(id,updatedBook).then(()=>{
-            res.redirect('/bookslist')
+            res.redirect('/recipe')
         })
     }
     catch(err){
@@ -109,7 +109,7 @@ router.get('/delete/:id',async(req,res,next)=>{
     try{
         let id=req.params.id;
         Book.deleteOne({_id:id}).then(()=>{
-            res.redirect('/bookslist')
+            res.redirect('/recipe');
         })
     }
     catch(error){

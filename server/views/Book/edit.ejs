@@ -1,37 +1,41 @@
-<%- include ../Partials/header.ejs%>
-<%- include ../Partials/main_nav.ejs%>
-<!--Content for the edit Operation-->
-<div class="container"></div>
+<%- include('../Partials/header') %>
+<%- include('../Partials/main_nav') %>
+
+<!-- Content for the edit operation -->
+<div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1><%= title %></h1>
             <form class="form" method="POST">
                 <div class="form-group">
-                    <label for="nameTextField">Book Title</label>
-                    <input type="text" class="form-control" id="nameTextField" placeholder="Enter the Book Title" name="Name" value="<%= Book.Name %>" required>
+                    <label for="mealTextField">Meal</label>
+                    <input type="text" class="form-control" id="mealTextField" placeholder="Enter the Meal Name" name="Meal" value="<%= Book.Meal %>" required>
                 </div>
                 <div class="form-group">
-                    <label for="authorTextField">Book Author</label>
-                    <input type="text" class="form-control" id="authorTextField" placeholder="Enter the Book Author" name="Author" value="<%= Book.Author %>" required>
+                    <label for="cookTimeTextField">Cook Time</label>
+                    <input type="text" class="form-control" id="cookTimeTextField" placeholder="Enter Cook Time" name="CookTime" value="<%= Book.CookTime %>" required>
                 </div>
                 <div class="form-group">
-                    <label for="publishedTextField">Published</label>
-                    <input type="text" class="form-control" id="publishedTextField" placeholder="Enter the Published year" name="Published" value="<%= Book.Published %>" required>
+                    <label for="ingredientsTextArea">Ingredients</label>
+                    <textarea class="form-control" id="ingredientsTextArea" placeholder="Enter Ingredients (comma-separated)" name="Ingredients" required><%= Book.Ingredients %></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="descriptionTextArea">Book Description</label>
-                    <textarea type="text" class="form-control" id="descriptionTextArea"  placeholder="enter the Book Description" name="Description" required><%= Book.Description %></textarea>
+                    <label for="descriptionTextArea">Description</label>
+                    <textarea class="form-control" id="descriptionTextArea" placeholder="Enter the Recipe Description" name="Description" required><%= Book.Description %></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="priceTextField">Price</label>
-                    <input type="text" class="form-control" id="priceTextField" placeholder="Book's Price" name="Price" value="<%= Book.Price %>" required>
+                    <label for="instructionsTextArea">Instructions</label>
+                    <textarea class="form-control" id="instructionsTextArea" placeholder="Enter Cooking Instructions" name="Instructions" required><%= Book.Instructions %></textarea>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit
-                <i class="fas fa-edit"></i></button>  
-                <button class="btn btn-warning" type="submit">Cancel
-                    <i class="fas fa-undo"></i></button>    
+                <button class="btn btn-primary" type="submit">
+                    Submit <i class="fas fa-edit"></i>
+                </button>
+                <a href="/recipe" class="btn btn-warning">
+                    Cancel <i class="fas fa-undo"></i>
+                </a>
             </form>
         </div>
     </div>
 </div>
-<%- include ../Partials/footer.ejs%>
+
+<%- include('../Partials/footer') %>
